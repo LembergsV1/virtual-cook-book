@@ -1,0 +1,22 @@
+.recipe {
+    width: 250px;
+    height: 200px;
+    margin: 40px;
+    padding: 1px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+  
+}
+
+.recipe button {
+  background: purple;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+

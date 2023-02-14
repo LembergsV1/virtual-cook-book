@@ -1,11 +1,12 @@
-import React from 'react';
-
+import RecipeList from "./RecipeList";
 
 const Home = () => {
-    
+
     return (
-        <h1>aaa</h1>
-    );
-};
+        <div className="home">
+            <RecipeList title="All Recipes"/>
+        </div>
+    )
+}
 
 export default Home;

@@ -1,28 +1,56 @@
 {
-    "recipes":[
-        {
-         "id": 1,
-         "title": "food",
-         "ingrid": [
-            "food",
-            "food 2",
-            "food 3"
-         ],
-            "how": "you just make it",
-            "time": 15
-            
-        },
-        {
-            "id": 2,
-            "title": "food again",
-         "ingrid": [
-            "food",
-            "food 2",
-            "food 3"
-         ],
-            "how": "you just make it",
-            "time": 15
-
-        }
-    ]
+  "recipes": [
+    {
+      "title": "boom",
+      "listIngredients": [
+        "",
+        "boom",
+        "boom 2"
+      ],
+      "method": "just boom",
+      "time": "22",
+      "id": 5
+    },
+    {
+      "title": "faw",
+      "listIngredients": [
+        "fw",
+        "fwa"
+      ],
+      "method": "awfwa",
+      "time": "13",
+      "id": 6
+    },
+    {
+      "title": "pancake",
+      "listIngredients": [
+        "flour",
+        "Sugar",
+        "Milk",
+        "eggs"
+      ],
+      "method": "mix everything together, and then cook the mixture for 3-5 mins",
+      "time": "20",
+      "id": 7
+    },
+    {
+      "title": "food",
+      "listIngredients": [
+        "dod"
+      ],
+      "method": "food",
+      "time": "2",
+      "id": 8
+    },
+    {
+      "title": "fhu",
+      "listIngredients": [
+        "fwahfo",
+        "wfa"
+      ],
+      "method": "fawfa",
+      "time": "24",
+      "id": 9
+    }
+  ]
 }
