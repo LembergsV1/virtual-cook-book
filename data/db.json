@@ -1,0 +1,28 @@
+{
+    "recipes":[
+        {
+         "id": 1,
+         "title": "food",
+         "ingrid": [
+            "food",
+            "food 2",
+            "food 3"
+         ],
+            "how": "you just make it",
+            "time": 15
+            
+        },
+        {
+            "id": 2,
+            "title": "food again",
+         "ingrid": [
+            "food",
+            "food 2",
+            "food 3"
+         ],
+            "how": "you just make it",
+            "time": 15
+
+        }
+    ]
+}
