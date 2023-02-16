@@ -5,12 +5,14 @@ import Home from './Components/Home';
 import Create from './Components/Create';
 import { APIContextProvider } from './Components/apiContext';
 import RecipeDetails from './Components/RecipeDetails';
+import { Provider } from 'react-redux';
+import { store } from './Components/Redux/store';
 
 
 
 function App() {
   return (
-    <APIContextProvider>
+    <Provider store={store}>
     <Router>
     <div className="App">
       <Navbar />
@@ -23,7 +25,7 @@ function App() {
       </div>
     </div>
     </Router>
-    </APIContextProvider>
+    </Provider>
   );
 }
 

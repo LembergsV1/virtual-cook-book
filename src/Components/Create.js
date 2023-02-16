@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { useAPI } from "./apiContext";
+import { setPending } from "./Redux/slices/pendingSlice";
 import './Create.css'
 
 
@@ -10,8 +11,15 @@ const Create = () => {
     const [ method, setMethod ] = useState('')
     const [ time, setTime ] = useState('')
     const [ listIngredients, setListIngredients ] = useState([])
-    const { isPending, setIsPending, url } =  useAPI();
 
+    const url = useSelector(
+        (state) => state.url.url
+    )
+    const isPending = useSelector(
+        (state) => state.pending
+    )
+
+    const dispatch = useDispatch()
     const nav = useNavigate()
 
     const handleIngredients = (e) => {
@@ -24,7 +32,7 @@ const Create = () => {
         e.preventDefault()
         const recipe = {title, listIngredients, method, time}
 
-        setIsPending(true);
+        dispatch(setPending(true));
 
         fetch(url, {
             method: 'POST',
@@ -32,7 +40,7 @@ const Create = () => {
             body: JSON.stringify(recipe)
         }).then(() => {
             console.log("New recipe added")
-            setIsPending(false);
+            dispatch(setPending(false));
             nav('/')
         })
     }
@@ -75,8 +83,8 @@ const Create = () => {
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 />
-                { !isPending && <button type="submit">Submit</button>}
-                { isPending && <button disabled>Submiting...</button>}
+                { isPending && <button type="submit">Submit</button>}
+                { !isPending && <button disabled>Submiting...</button>}
             </form>
         </div>
     )
