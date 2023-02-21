@@ -51,6 +51,44 @@
       "method": "fawfa",
       "time": "24",
       "id": 9
+    },
+    {
+      "title": "Pizza",
+      "listIngredients": [
+        "pizza dough",
+        "tomato sauce",
+        "toppings of your choice"
+      ],
+      "method": "Make the dough in a circular shape, then put on tomato sauce all over the dough, and then add toppings of your choice and cook in the oven for 1 hour",
+      "time": "60",
+      "id": 10
+    },
+    {
+      "title": "Cold Beet Soup",
+      "listIngredients": [
+        "3 small-medium beets",
+        "2 green cucumbers Persian",
+        "3-4 green onions chopped",
+        "3-4 Tbsp finely chopped fresh dill",
+        "1 quart kefir or buttermilk",
+        "1 Tbsp grated horseradish",
+        "1 Tbsp. fresh lemon juice",
+        "salt to taste",
+        "freshly ground black pepper to taste",
+        "2-4 eggs"
+      ],
+      "method": "cut everything into slices, mix everything with kefir, and let it refrigerate overnight.",
+      "time": "30",
+      "id": 11
+    },
+    {
+      "title": "test",
+      "listIngredients": [
+        "this is a test for redux"
+      ],
+      "method": "this is a test for redux implementation ",
+      "time": "12",
+      "id": 12
     }
   ]
 }

@@ -1,22 +1,25 @@
-.recipe {
-    width: 250px;
-    height: 200px;
-    margin: 40px;
-    padding: 1px;
-    border: 2px solid black;
-    border-radius: 5px;
-    text-align: center;
-  
+.recipe-preview {
+  width: 300px;
+  height: 250px;
+  margin: 25px;
+  padding: 13px;
+  text-align: center;
+  border: 5px solid purple;
+  border-radius: 10px;
 }
 
-.recipe button {
-  background: purple;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: purple;
+  border-radius: 5px;
   cursor: pointer;
-  display: block;
-  margin: 0 auto;
+  color: aliceblue;
 }
 

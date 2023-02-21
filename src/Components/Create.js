@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { useAPI } from "./apiContext";
 import './Create.css'
+import axios from "axios";
 
 
 const Create = () => {
@@ -10,32 +11,40 @@ const Create = () => {
     const [ method, setMethod ] = useState('')
     const [ time, setTime ] = useState('')
     const [ listIngredients, setListIngredients ] = useState([])
-    const { isPending, setIsPending, url } =  useAPI();
 
-    const nav = useNavigate()
+    const nav = useNavigate();
+  
 
-    const handleIngredients = (e) => {
-        e.preventDefault()
-        setListIngredients([...listIngredients, ingredients])
-        setIngredients('')
-    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const recipe = {title, listIngredients, method, time}
+const isPending = useSelector(
+    (state) => state.pending
+)
 
-        setIsPending(true);
 
-        fetch(url, {
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(recipe)
-        }).then(() => {
-            console.log("New recipe added")
-            setIsPending(false);
-            nav('/')
+
+
+  const handleIngredients = (e) => {
+    e.preventDefault()
+    setListIngredients([...listIngredients,ingredients])
+    setIngredients('')
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+        await axios.post("http://localhost:3002/recipes", {
+            title,
+            listIngredients,
+            method,
+            time,
         })
+        nav('/')
+    } catch (error) {
+        console.log(error)
     }
+}
+
+   
 
 
 
@@ -75,8 +84,8 @@ const Create = () => {
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 />
-                { !isPending && <button type="submit">Submit</button>}
-                { isPending && <button disabled>Submiting...</button>}
+                { isPending && <button type="submit">Submit</button>}
+                { !isPending && <button disabled>Submiting...</button>}
             </form>
         </div>
     )

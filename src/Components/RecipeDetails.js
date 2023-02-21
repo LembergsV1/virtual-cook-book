@@ -1,27 +1,39 @@
-import {useParams } from "react-router-dom";
-import { useAPI } from "./apiContext";
-import useFetch from "./useFetch";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import './Details.css'
+
 
 const RecipeDetails = () => {
-    const {id} = useParams()
-    const {url} = useAPI()
-    const {data: recipe, error, isPending} = useFetch(url + id)
 
-    return (
+    const [recipe, setRecipe] = useState([])
+    const [listIng, setListIng] = useState([])
+
+    const nav = useNavigate()
+    const { id } = useParams()
+    useEffect(() => {
+        getRecipe();
+    }, []);
+
+    const getRecipe = async () => {
+        const response = await axios.get(`http://localhost:3002/recipes/${id}`);
+        setRecipe(response.data)
+        setListIng(response.data.listIngredients)
+      };
+
+    return ( 
         <div className="recipe-details">
-            {isPending &&<div>Loading</div>}
-            {error &&<div>{error}</div>}
-            {recipe && (
+            { recipe && (
                 <article>
                     <h1>{recipe.title}</h1>
-                    <p className="ing">Ingrediants: {recipe.listIngredients.join(',')}</p>
+                    <p className="ing">Ingrediants: {listIng.join(',')}</p>
                     <h1>How to cook</h1>
-                    <div>{recipe.method}</div>
+                    <div className="description">{recipe.method}</div>
                     <p>Time to cook: {recipe.time}</p>
                 </article>
             )}
         </div>
-    );
+     );
 }
-
+ 
 export default RecipeDetails;
