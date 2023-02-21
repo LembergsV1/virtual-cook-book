@@ -1,25 +1,36 @@
 import { Link } from "react-router-dom"
 import './RecipeList.css'
-import { getRecipes } from "./Redux/slices/recipeSlice"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 
 
 const RecipeList = () => {
-    const { recipes, loading } = useSelector((state) => state.recipe)
+
+    const [ recipes, setRecipes] = useState([])
+
+
+
+    useEffect(() => {
+        getRecipes()
+    }, [])
+
+    const getRecipes = async () => {
+        const response = await axios.get("http://localhost:3002/recipes")
+        setRecipes(response.data)
+    }
+
+    const { loading } = useSelector((state) => state.recipe)
     const query = useSelector(
         (state) => state.recipeFilter.query
     )
-    const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getRecipes())
-    }, [])
-    
+
     if(loading) {
         return <h2>Loading...</h2>
     }
+    
     return (
         <div className="recipe">
             {
